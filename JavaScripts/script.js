@@ -3,6 +3,8 @@ const taskInput = document.querySelector(".task-input input"),
   clearAll = document.querySelector(".clear-btn"),
   taskBox = document.querySelector(".task-box"),
   addBtn = document.querySelector(".add-btn"),
+  downBtn = document.querySelector(".down-btn"),
+  upBtn = document.querySelector(".up-btn"),
   dateEl = document.querySelector(".date"),
   nameInput = document.querySelector("#name"),
   username = localStorage.getItem("username") || "";
@@ -143,6 +145,10 @@ taskInput.addEventListener("keyup", (e) => {
     showTodo("all");
   }
 });
+
+downBtn.addEventListener("click", (e) => {});
+
+upBtn.addEventListener("click", (e) => {});
 
 const date = new Date();
 const year = date.getFullYear();
