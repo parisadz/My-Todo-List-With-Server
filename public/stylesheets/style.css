@@ -168,8 +168,16 @@ li {
   width: 49%;
 }
 
+.down-btn:hover {
+  background: var(--dark);
+}
+
 .up-btn {
   width: 49%;
+}
+
+.up-btn:hover {
+  background: var(--dark);
 }
 
 .task-box {

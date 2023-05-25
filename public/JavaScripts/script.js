@@ -18,8 +18,10 @@ nameInput.addEventListener("change", (e) => {
   localStorage.setItem("username", e.target.value);
 });
 
-// getting localstrige todo-list
+// getting localstorage todo-list
 let todos = JSON.parse(localStorage.getItem("todo-list"));
+
+let newTodos = localStorage.getItem("todo-list");
 
 filters.forEach((btn) => {
   btn.addEventListener("click", () => {
@@ -148,7 +150,24 @@ taskInput.addEventListener("keyup", (e) => {
 
 downBtn.addEventListener("click", (e) => {});
 
-upBtn.addEventListener("click", (e) => {});
+upBtn.addEventListener("click", (e) => {
+  fetch("http://localhost:3000/database/upload", {
+    method: "POST",
+    body: newTodos,
+    headers: {
+      "Content-type": "application/jsob; charset-UTF-8",
+    },
+  })
+    .then(function (response) {
+      if (response.ok) {
+        return response.json();
+      }
+      return Promise.reject(response);
+    })
+    .catch(function (error) {
+      console.warn("An error has occurred.", error);
+    });
+});
 
 const date = new Date();
 const year = date.getFullYear();
