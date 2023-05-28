@@ -146,7 +146,23 @@ taskInput.addEventListener("keyup", (e) => {
   }
 });
 
-downBtn.addEventListener("click", (e) => {});
+function save(todos) {
+  localStorage.setItem("todo-list", JSON.stringify(todos));
+}
+
+downBtn.addEventListener("click", (e) => {
+  localStorage.removeItem("todo-list");
+  let removeItems = document.querySelectorAll(".todo-list");
+  removeItems.forEach((remove) => {
+    remove.remove();
+  });
+  fetch("http://localhost:3000/database/download")
+    .then((response) => response.json())
+    .then((counts) => {
+      showTodo(counts);
+      save(counts);
+    });
+});
 
 upBtn.addEventListener("click", (e) => {
   let newTodos = localStorage.getItem("todo-list");
