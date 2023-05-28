@@ -21,8 +21,6 @@ nameInput.addEventListener("change", (e) => {
 // getting localstorage todo-list
 let todos = JSON.parse(localStorage.getItem("todo-list"));
 
-let newTodos = localStorage.getItem("todo-list");
-
 filters.forEach((btn) => {
   btn.addEventListener("click", () => {
     document.querySelector("span.active").classList.remove("active");
@@ -151,11 +149,13 @@ taskInput.addEventListener("keyup", (e) => {
 downBtn.addEventListener("click", (e) => {});
 
 upBtn.addEventListener("click", (e) => {
+  let newTodos = localStorage.getItem("todo-list");
+
   fetch("http://localhost:3000/database/upload", {
     method: "POST",
     body: newTodos,
     headers: {
-      "Content-type": "application/jsob; charset-UTF-8",
+      "Content-type": "application/json; charset=UTF-8",
     },
   })
     .then(function (response) {
