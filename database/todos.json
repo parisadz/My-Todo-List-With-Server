@@ -1,1 +1,6 @@
-[{"text":"aa","status":"pending"},{"text":"bb","status":"pending"},{"text":"cc","status":"pending"}]
+[
+  { "text": "go to park", "status": "completed" },
+  { "text": "go to cinema", "status": "pending" },
+  { "text": "study", "status": "pending" },
+  { "text": "party", "status": "completed" }
+]

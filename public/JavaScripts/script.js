@@ -55,7 +55,7 @@ function showTodo(filter) {
   // if li isn't empty, insert this this value inside taskbox else insert span
   taskBox.innerHTML = li || `<span>You don't have any task here.</span>`;
 }
-showTodo("all");
+showTodo("all", "");
 
 function showMenu(selectedTask) {
   // getting task menu div
@@ -104,7 +104,9 @@ function updateStatus(selectedTask) {
   localStorage.setItem("todo-list", JSON.stringify(todos));
 }
 
-addBtn.addEventListener("click", (e) => {
+addBtn.addEventListener("click", addTodo);
+
+function addTodo() {
   if (taskInput.value !== "") {
     let userTask = taskInput.value.trim();
     if (!isEditedTask) {
@@ -123,7 +125,7 @@ addBtn.addEventListener("click", (e) => {
     localStorage.setItem("todo-list", JSON.stringify(todos));
     showTodo("all");
   }
-});
+}
 
 taskInput.addEventListener("keyup", (e) => {
   let userTask = taskInput.value.trim();
@@ -158,9 +160,9 @@ downBtn.addEventListener("click", (e) => {
   });
   fetch("http://localhost:3000/database/download")
     .then((response) => response.json())
-    .then((counts) => {
-      showTodo(counts);
-      save(counts);
+    .then((downTodos) => {
+      todos = downTodos;
+      showTodo("all");
     });
 });
 
