@@ -192,6 +192,10 @@ li {
   border-bottom: 1px solid #ccc;
 }
 
+.task-box .task p {
+  margin-top: 5px;
+}
+
 .task-box .task:last-child {
   margin-bottom: 0;
   border-bottom: 0;
@@ -251,4 +255,64 @@ li {
 }
 .task-menu li i {
   padding-right: 8px;
+}
+
+@media only screen and (max-width: 500px) {
+  .greeting .title,
+  .greeting .title input {
+    font-size: 1rem;
+  }
+
+  .wrapper {
+    max-width: 405px;
+  }
+
+  .task-input input {
+    height: 80%;
+    font-size: 14px;
+  }
+
+  .task-input img {
+    top: 40%;
+    width: 25px;
+    height: 25px;
+  }
+
+  button {
+    font-size: 12px;
+    height: 30px;
+  }
+
+  .servers {
+    padding-top: 40px;
+  }
+
+  .controls {
+    padding-top: 12px;
+  }
+
+  .filters span {
+    font-size: 14px;
+  }
+
+  span {
+    font-size: 14px;
+  }
+
+  .task-box .task {
+    font-size: 14px;
+  }
+
+  .task-box .task p {
+    margin-top: 5px;
+  }
+
+  .settings .task-menu.show {
+    width: 95px;
+  }
+
+  .task-menu li {
+    height: 20;
+    font-size: 12px;
+  }
 }
