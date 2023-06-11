@@ -73,6 +73,8 @@ function editTask(taskId, taskName) {
   editId = taskId;
   isEditedTask = true;
   taskInput.value = taskName;
+  addBtn.textContent = "Save Todo";
+  prompt("Now you can edit your task.😋", taskName);
 }
 
 function deleteTask(deleteId) {
@@ -108,6 +110,7 @@ addBtn.addEventListener("click", addTodo);
 
 function addTodo() {
   if (taskInput.value !== "") {
+    addBtn.textContent = "Add Todo";
     let userTask = taskInput.value.trim();
     if (!isEditedTask) {
       // if isEditedTask isn't true
