@@ -74,7 +74,9 @@ function editTask(taskId, taskName) {
   isEditedTask = true;
   taskInput.value = taskName;
   addBtn.textContent = "Save Todo";
-  prompt("Now you can edit your task.😋", taskName);
+  alert("Now you can edit your task.😋");
+
+  // prompt("Now you can edit your task.😋", taskName);
 }
 
 function deleteTask(deleteId) {
